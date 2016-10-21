@@ -1,0 +1,27 @@
+
+<a class="main-item" href="javascript:void(0);" tabindex="1" >Меню</a> 
+<ul class="sub-menu">
+{% for mtop in mtops %}
+	<li>
+	<a class="main-item" href="javascript:void(0);" tabindex="1">{{mtop.name}}</a>
+		
+	<ul class="sub-menu">
+	
+	{% for top in mtop.top_set.all %}
+	<li>
+	<a class="main-item" href="javascript:void(0);" tabindex="1">{{top.name}}</a>
+		
+		<ul class="sub-menu">
+			{% for category in top.category_set.all %}
+			<li><a href="{{category.href}}">{{category.name}}</a></li>
+			{% endfor %}
+			
+		</ul>
+		
+	</li>
+	{% endfor %}
+	</ul>
+	</li>
+{% endfor %}
+</ul>
+	
